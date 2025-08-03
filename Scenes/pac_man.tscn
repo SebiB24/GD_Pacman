@@ -1,0 +1,51 @@
+[gd_scene load_steps=8 format=3 uid="uid://cqwgq3qx12wmj"]
+
+[ext_resource type="Texture2D" uid="uid://1g51c60o5q4j" path="res://Resources/PacMan-Sheet.png" id="1_2mw3d"]
+[ext_resource type="Script" uid="uid://ccbgld42n4tfh" path="res://Scenes/pac_man.gd" id="1_c67fa"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_c67fa"]
+radius = 7.27
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ouydr"]
+atlas = ExtResource("1_2mw3d")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_il411"]
+atlas = ExtResource("1_2mw3d")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nhr0u"]
+atlas = ExtResource("1_2mw3d")
+region = Rect2(32, 0, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_bnmkf"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ouydr")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_il411")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_nhr0u")
+}],
+"loop": true,
+"name": &"eating",
+"speed": 5.0
+}]
+
+[node name="PacMan" type="CharacterBody2D"]
+script = ExtResource("1_c67fa")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0.545, -0.365)
+shape = SubResource("CircleShape2D_c67fa")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(0, -1)
+sprite_frames = SubResource("SpriteFrames_bnmkf")
+animation = &"eating"
+autoplay = "eating"
+
+[connection signal="direction_changed" from="." to="." method="_on_direction_changed"]

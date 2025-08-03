@@ -1,8 +1,11 @@
-[gd_scene load_steps=2 format=3 uid="uid://cp5xn05df32hn"]
+[gd_scene load_steps=4 format=3 uid="uid://cp5xn05df32hn"]
 
 [ext_resource type="PackedScene" uid="uid://dhcg0rt0x046w" path="res://Scenes/map.tscn" id="1_ebmjs"]
+[ext_resource type="Script" uid="uid://ih3s8yojjr6y" path="res://Scenes/game.gd" id="1_wrm1d"]
+[ext_resource type="PackedScene" uid="uid://cqwgq3qx12wmj" path="res://Scenes/pac_man.tscn" id="2_qxrlw"]
 
 [node name="Game" type="Node"]
+script = ExtResource("1_wrm1d")
 
 [node name="Map" parent="." instance=ExtResource("1_ebmjs")]
 position = Vector2(23, 22)
@@ -10,3 +13,6 @@ position = Vector2(23, 22)
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(-1, -2)
 zoom = Vector2(1.81, 1.81)
+
+[node name="PacMan" parent="." instance=ExtResource("2_qxrlw")]
+position = Vector2(-1, 78)
