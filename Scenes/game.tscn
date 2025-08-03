@@ -15,4 +15,4 @@ position = Vector2(-1, -2)
 zoom = Vector2(1.81, 1.81)
 
 [node name="PacMan" parent="." instance=ExtResource("2_qxrlw")]
-position = Vector2(-1, 78)
+position = Vector2(14.49, 78.27)

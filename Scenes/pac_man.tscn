@@ -4,7 +4,7 @@
 [ext_resource type="Script" uid="uid://ccbgld42n4tfh" path="res://Scenes/pac_man.gd" id="1_c67fa"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_c67fa"]
-radius = 7.27
+radius = 7.0
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ouydr"]
 atlas = ExtResource("1_2mw3d")
@@ -39,7 +39,7 @@ animations = [{
 script = ExtResource("1_c67fa")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(0.545, -0.365)
+position = Vector2(0.375, -0.465)
 shape = SubResource("CircleShape2D_c67fa")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
