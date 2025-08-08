@@ -21,11 +21,13 @@ signal direction_changed(direction)
 			#direction_changed.emit(vertical * 2)
 #
 	#move_and_slide()
+	
 const TILE_SIZE = 16
 const SPEED = 100
 
 var direction := Vector2.ZERO
 var desired_direction := Vector2.ZERO  # V(0, 0)
+var prev_desired_direction := Vector2.ZERO
 var target_position := Vector2.ZERO
 var is_moving := false
 
@@ -43,13 +45,13 @@ func _process(delta: float) -> void:
 		try_move()
 
 func handle_input():
-	if Input.is_action_pressed("right"):
+	if Input.is_action_just_pressed("right"):
 		desired_direction = Vector2.RIGHT # V(1, 0)
-	elif Input.is_action_pressed("left"):
+	elif Input.is_action_just_pressed("left"):
 		desired_direction = Vector2.LEFT
-	elif Input.is_action_pressed("up"):
+	elif Input.is_action_just_pressed("up"):
 		desired_direction = Vector2.UP
-	elif Input.is_action_pressed("down"):
+	elif Input.is_action_just_pressed("down"):
 		desired_direction = Vector2.DOWN
 
 func move_to_target(delta):
@@ -61,14 +63,21 @@ func try_move():
 	var next_tile_pos = (position + desired_direction * TILE_SIZE).snapped(Vector2(TILE_SIZE, TILE_SIZE))
 	if is_tile_walkable(next_tile_pos):
 		direction = desired_direction
+		prev_desired_direction = desired_direction
 		direction_changed.emit(direction)
 		target_position = next_tile_pos
+		is_moving = true
+	else:
+		desired_direction = prev_desired_direction
 		is_moving = true
 		
 
 func is_tile_walkable(pos: Vector2) -> bool:
 	var wall_tilemap: TileMapLayer = $"../Map/Walls"
-	var coords = wall_tilemap.local_to_map(pos)
+	# .local_to_map -- returns coords of cell containing the pos coordonates
+		# pos -> considering those coord in the local coord sistem
+		# wall_tilemap.to_local(pos) -> considering those coord in the global coord sistem
+	var coords = wall_tilemap.local_to_map(wall_tilemap.to_local(pos)) 
 	var tile_id = wall_tilemap.get_cell_source_id(coords)
 
 	# If there's no wall tile at this position, it's walkable
