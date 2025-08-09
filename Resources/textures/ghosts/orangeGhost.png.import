@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bb4oe13wav188"
-path="res://.godot/imported/pacmanRight.png-76b5ae7c8910e0f2082eab136e2a8a7e.ctex"
+uid="uid://deovotye5x5id"
+path="res://.godot/imported/orangeGhost.png-fd26b1dfb24306a839de2b211ff18097.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Resources/pacmanRight.png"
-dest_files=["res://.godot/imported/pacmanRight.png-76b5ae7c8910e0f2082eab136e2a8a7e.ctex"]
+source_file="res://Resources/textures/ghosts/orangeGhost.png"
+dest_files=["res://.godot/imported/orangeGhost.png-fd26b1dfb24306a839de2b211ff18097.ctex"]
 
 [params]
 

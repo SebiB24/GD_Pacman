@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=3 uid="uid://cp5xn05df32hn"]
 
 [ext_resource type="PackedScene" uid="uid://dhcg0rt0x046w" path="res://Scenes/map.tscn" id="1_ebmjs"]
-[ext_resource type="Script" uid="uid://ih3s8yojjr6y" path="res://Scenes/game.gd" id="1_wrm1d"]
+[ext_resource type="Script" uid="uid://ih3s8yojjr6y" path="res://Scripts/game.gd" id="1_wrm1d"]
 [ext_resource type="PackedScene" uid="uid://cqwgq3qx12wmj" path="res://Scenes/pac_man.tscn" id="2_qxrlw"]
 
 [node name="Game" type="Node"]
@@ -12,7 +12,19 @@ position = Vector2(23, 22)
 
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(-1, -2)
+offset = Vector2(-0.07, -11.845)
 zoom = Vector2(1.81, 1.81)
 
 [node name="PacMan" parent="." instance=ExtResource("2_qxrlw")]
-position = Vector2(14.49, 78.27)
+position = Vector2(-1, 79)
+
+[node name="ScoreLabel" type="Label" parent="."]
+offset_left = -150.0
+offset_top = -195.0
+offset_right = -110.0
+offset_bottom = -172.0
+text = "SCORE: "
+
+[connection signal="handle_game_won" from="PacMan" to="." method="_on_pac_man_handle_game_won"]
+[connection signal="handle_ghost_collision" from="PacMan" to="." method="_on_pac_man_handle_ghost_collision"]
+[connection signal="increase_score" from="PacMan" to="." method="_on_pac_man_increase_score"]

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://1g51c60o5q4j"
-path="res://.godot/imported/PacMan-Sheet.png-9cd799c5cf60a0b8a1785949ac094865.ctex"
+uid="uid://c07wqv17nrwdp"
+path="res://.godot/imported/pinkGhost.png-5d398d6953a8af047aa6e0dba3c02c68.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Resources/PacMan-Sheet.png"
-dest_files=["res://.godot/imported/PacMan-Sheet.png-9cd799c5cf60a0b8a1785949ac094865.ctex"]
+source_file="res://Resources/textures/ghosts/pinkGhost.png"
+dest_files=["res://.godot/imported/pinkGhost.png-5d398d6953a8af047aa6e0dba3c02c68.ctex"]
 
 [params]
 

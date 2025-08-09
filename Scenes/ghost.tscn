@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=3 uid="uid://bwxjh2mxi528u"]
+
+[ext_resource type="Script" uid="uid://c7x5k4i0wgm6c" path="res://Scripts/ghost.gd" id="1_e3r4w"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_e3r4w"]
+
+[node name="ghost" type="CharacterBody2D"]
+scale = Vector2(0.992202, 1)
+script = ExtResource("1_e3r4w")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0.045, 0.62)
+scale = Vector2(0.765, 0.765)
+shape = SubResource("CircleShape2D_e3r4w")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
